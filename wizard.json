@@ -1,0 +1,76 @@
+{
+    "version": 1,
+    "supportedProjectTypes": [ "CMakeProjectManager.CMakeProject" ],
+    "id": "P.Pelux Template Service",
+    "category": "I.Projects",
+    "trDescription": "Creates a skeleton C++ service for the Pelux project.<br><br>https://pelux.io",
+    "trDisplayName": "Pelux C++ Template Service",
+    "trDisplayCategory": "Pelagicore",
+    "icon": "pelagicore.png",
+    "enabled": "%{JS: [ %{Plugins} ].indexOf('CMakeProjectManager') >= 0 && [ %{Plugins} ].indexOf('CppEditor') >= 0}",
+
+    "options":
+    [
+        { "key": "ProjectFile", "value": "%{CMakeFile}" },
+        { "key": "CMakeFile", "value": "%{ProjectDirectory}/CMakeLists.txt" }
+    ],
+
+    "pages":
+    [
+        {
+            "trDisplayName": "Project Location",
+            "trShortTitle": "Location",
+            "typeId": "Project"
+        },
+        {
+            "trDisplayName": "Kit Selection",
+            "trShortTitle": "Kits",
+            "typeId": "Kits",
+            "enabled": "%{JS: ! %{IsSubproject}}",
+            "data": { "projectFilePath": "%{ProjectFile}" }
+        },
+        {
+            "trDisplayName": "Project Management",
+            "trShortTitle": "Summary",
+            "typeId": "Summary"
+        }
+    ],
+
+    "generators":
+    [
+        {
+            "typeId": "File",
+            "data":
+            [
+                {
+                    "source": "template-service/CMakeLists.txt",
+                    "target": "%{ProjectDirectory}/CMakeLists.txt",
+                    "openInEditor": true,
+                    "openAsProject": true
+                },
+                {
+                    "source": "template-service/src/main.cpp",
+                    "target": "%{ProjectDirectory}/src/main.cpp",
+                    "openInEditor": true,
+                    "isBinary": true
+                },
+                {
+                    "source": "template-service/systemd/template-service.service",
+                    "target": "%{ProjectDirectory}/systemd/%{ProjectName}-service.service"
+                },
+                {
+                    "source": "template-service/LICENSE",
+                    "target": "%{ProjectDirectory}/LICENSE"
+                },
+                {
+                    "source": "template-service/README.md",
+                    "target": "%{ProjectDirectory}/README.md"
+                },
+                {
+                    "source": "template-service/gitignore",
+                    "target": "%{ProjectDirectory}/.gitignore"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+[Unit]
+Description=%{ProjectName} Service
+
+[Service]
+Type=simple
+PIDFile=/var/run/%{ProjectName}-service.pid
+ExecStart=/usr/bin/%{ProjectName}
+
+[Install]
+WantedBy=multi-user.target
