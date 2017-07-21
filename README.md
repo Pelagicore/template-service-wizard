@@ -7,6 +7,14 @@ Dependencies
 ------------
 - [template-service](https://github.com/Pelagicore/template-service)
 
+Installation
+------------
+```bash
+mkdir -p ~/.config/QtProject/qtcreator/templates/wizards
+cd ~/.config/QtProject/qtcreator/templates/wizards
+git clone https://github.com/Pelagicore/template-service-wizard.git
+```
+
 License and Copyright
 ---------------------
 Copyright (C) 2017 Pelagicore AB
