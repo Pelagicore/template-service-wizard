@@ -9,15 +9,17 @@
  *
  */
 
-#include <template-library/templatepublicclass.h>
+// #include <template-library/templatepublicclass.h>
 
 #include <iostream>
 #include <memory>
 
 int main(int argc, char const **argv)
 {
+    /*
     std::shared_ptr<TemplatePublicClass> templatePublicInstance(new TemplatePublicClass());
     templatePublicInstance->templateFunction();
+    */
 
     std::cout << "Hello from Template Service!\n";
 
